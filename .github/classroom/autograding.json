@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Alter",
+      "setup": "make",
+      "run": "./final Alter",
+      "input": "",
+      "output": "Alter test PASS",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 100
+    }
+  ]
+}

@@ -714,7 +714,7 @@ namespace ECE141 {
         std::stringstream theOutput(tempStr);
         CountList theCounts;
         if((theResult=hwIsValid(theOutput,theCounts))) {
-          static CountList theOpts{1,1,0,14,0,0,0,7,5,7,2};
+          static CountList theOpts{1,1,0,14,0,0,0,7,4,7,2};
           theResult=compareCounts(theCounts,theOpts,10);
         }
       }

@@ -26,19 +26,19 @@ int main(int argc, const char * argv[]) {
   if(argc>1) {
     ECE141::TestAutomatic theTests;
     std::map<std::string, std::function<bool()> > theCalls {
-      {"alter",  [&](){return theTests.doAlterTest();}},
-      {"app",    [&](){return theTests.doAppTest();}},
+      {"Alter",  [&](){return theTests.doAlterTest();}},
+      {"App",    [&](){return theTests.doAppTest();}},
       {"Cache",  [&](){return theTests.doCacheTest();}},
-      {"compile",[&](){return theTests.doCompileTest();}},
-      {"db",     [&](){return theTests.doDBTest();}},
-      {"delete", [&](){return theTests.doDeleteTest();}},
-      {"drop",   [&](){return theTests.doDropTest();}},
-      {"index",  [&](){return theTests.doIndexTest();}},
-      {"insert", [&](){return theTests.doInsertTest();}},
-      {"join",   [&](){return theTests.doJoinTest();}},
-      {"select", [&](){return theTests.doSelectTest();}},
-      {"tables", [&](){return theTests.doTablesTest();}},
-      {"update", [&](){return theTests.doUpdateTest();}},
+      {"Compile",[&](){return theTests.doCompileTest();}},
+      {"DB",     [&](){return theTests.doDBTest();}},
+      {"Delete", [&](){return theTests.doDeleteTest();}},
+      {"Drop",   [&](){return theTests.doDropTest();}},
+      {"Index",  [&](){return theTests.doIndexTest();}},
+      {"Insert", [&](){return theTests.doInsertTest();}},
+      {"Join",   [&](){return theTests.doJoinTest();}},
+      {"Select", [&](){return theTests.doSelectTest();}},
+      {"Tables", [&](){return theTests.doTablesTest();}},
+      {"Update", [&](){return theTests.doUpdateTest();}},
     };
     
     std::string theCmd(argv[1]);

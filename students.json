@@ -2,13 +2,13 @@
   "course": "ECE141b",
   "assignment"         : "final",
   "due_date"           : "June 7, 2021, 6:00p",
-  "total_effort_hours" : 0,
+  "total_effort_hours": 1.5,
   "students": [
     {
-      "name " : "Your Name",
-      "pid"   : "Your StudentId",
-      "email" : "Your Email",
-      "os"    : "windows|mac|linux"
+      "name " : "Yunhsiu Wu",
+      "pid"   : "A53295675",
+      "email" : "yuw076@ucsd.edu",
+      "os"    : "windows"
     }
   ]
 }

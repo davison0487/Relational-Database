@@ -2,27 +2,45 @@
 
 This project is to build a relational database system from scratch that follows MVC pattern.
 
+(Windows user may experience temporary folder location issue.)
+
+## Running the Database System
+
+Compile and run with no arguments, the system should be ready for inputs.
+
+The following arguments are automated tests, please use them once at a time.
+
+```
+Alter, App, Compile, DB, Delete, Drop, Index, Insert, Join, Select, Tables, Update
+```
+
+## API
+
+Create an Application instance, create an `std::istream` instance with input commands and call `Application::handleInput(std::istream &anInput);` method, the rest will be taken care of.
+
+`StatusResult` is a struct that holds error message if occurs, check `Errors.hpp` for error codes.
+
 ## Supporting Commands
 
 ### Application Level
 
-`help, version, quit`
+`help;`, `version;`, `quit;`
 
 Help command is just a place holder for future implementation, no existing helping system is implemented.
 
 ### Database Level
 
-`CREATE DATABASE {db-name}`, `DROP DATABASE {db-name}`, `SHOW DATABASES`, `USE {db-name}`
+`CREATE DATABASE {db-name};`, `DROP DATABASE {db-name};`, `SHOW DATABASES;`, `USE {db-name};`
 
 These commands relate to creating, listing, and managing database containers.
 
-`DUMP DATABASE {db-name}`
+`DUMP DATABASE {db-name};`
 
 This command is used for internal debugging.
 
 ### Table Related
 
-`CREATE TABLE {table-name}` : Create a new table. Below is an example,
+`CREATE TABLE {table-name};` : Create a new table. Below is an example,
 
 `CREATE TABLE test1 (id int NOT NULL auto_increment primary key, first_name varchar(50) NOT NULL, last_name VARCHAR(50));`
 
@@ -37,11 +55,11 @@ This command is used for internal debugging.
 - nullable (bool indicates the field can be null)
 ```
 
-`DROP TABLE {table-name}` : Delete the associated table.
+`DROP TABLE {table-name};` : Delete the associated table.
 
-`DESCRIBE {table-name}` : Describe the associated schema.
+`DESCRIBE {table-name};` : Describe the associated schema.
 
-`SHOW TABLES` : Show all available tables inside the current database.
+`SHOW TABLES;` : Show all available tables inside the current database.
 
 `ALTER TABLE {table-name} add {field-name} {field-info};` : Add a new column.
 
@@ -62,11 +80,11 @@ VALUES
 ('Bryant', 'Kobe', 'Los Angeles Lakers');
 ```
 
-`UPDATE {table-name} SET {field-name} = {value} WHERE {constraint}`
+`UPDATE {table-name} SET {field-name} = {value} WHERE {constraint};`
 
 The UPDATE command allows a user to select records from a given table, alter those records in memory, and save the records back out to the storage file.
 
-`DELETE FROM {table-name} WHERE {constraint}`
+`DELETE FROM {table-name} WHERE {constraint};`
 
 The DELETE command allows a user to select records from a given table, and remove those rows from Storage. When a user issues the DELETE FROM... command, the system will find rows that match the given constraints (in the WHERE clause).
 
@@ -74,11 +92,11 @@ The DELETE command allows a user to select records from a given table, and remov
 
 The SELECT command allows a user to retrieve (one or more) records from a given table. The command accepts one or more fields to be retrieved (or the *), along with a series of optional arguments (e.g. ORDER BY, LIMIT). Below, are examples of the SELECT statements (presumes the existence of a Users and Accounts table):
 
-`SELECT * FROM  Users`
+`SELECT * FROM  Users;`
 
 `SELECT first_name, last_name FROM Users ORDER BY last_name;`
 
-`SELECT...WHERE ... LIMIT N...`
+`SELECT...WHERE ... LIMIT N...;`
 
 #### Available Arguments
 
@@ -94,6 +112,12 @@ The SELECT command allows a user to retrieve (one or more) records from a given 
 
 At this point, only `LEFT JOIN` and `RIGHT JOIN` are available.
 
+```
+SELECT users.first_name, users.last_name, order_number 
+FROM users
+LEFT JOIN orders ON users.id=orders.user_id;
+```
+
 ### Index
 
 The index system will automatically create/delete/add the associated indexes and their associated data when `CREATE Table`/`DROP Table`/`INSERT Rows` command is called. When you `SELECT` rows, the system will use the primary key index to load records for the table.
@@ -103,7 +127,7 @@ The index system will automatically create/delete/add the associated indexes and
 This command shows all the indexes defined in current database.
 
 ```
-> show indexes
+> show indexes;
 +-----------------+-----------------+
 | table           | field(s)        | 
 +-----------------+-----------------+
@@ -112,7 +136,7 @@ This command shows all the indexes defined in current database.
 1 rows in set (nnnn secs)
 ```
 
-`SHOW INDEX {field1, field2} FROM {tablename}`
+`SHOW INDEX {field1, field2} FROM {tablename};`
 
 This command shows all the key/value pairs found in an index (shown below).
 

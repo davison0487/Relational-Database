@@ -4,6 +4,10 @@ This project is to build a relational database system from scratch that follows 
 
 (Windows user may experience temporary folder location issue.)
 
+## Workflow Diagram
+
+![image](https://github.com/davison0487/Relational-Database/blob/main/img/workflow.jpg)
+
 ## Running the Database System
 
 Compile and run with no arguments, the system should be ready for inputs.

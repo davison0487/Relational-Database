@@ -18,7 +18,7 @@ The following arguments are automated tests, please use them once at a time.
 Alter, App, Compile, DB, Delete, Drop, Index, Insert, Join, Select, Tables, Update
 ```
 
-## API
+## Work With This Database System
 
 Create an Application instance, create an `std::istream` instance with input commands and call `Application::handleInput(std::istream &anInput);` method, the rest will be taken care of.
 
